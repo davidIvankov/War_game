@@ -10,13 +10,9 @@ def game_init():
     return player_one, player_two
 
 
-def player_move(): ...
-def result(player_one, player_two): ...
-def war(): ...
-def calculate_end(player_one_score, player_two_score): ...
 def main():
     player_one, player_two = game_init()
-    Deck.round(player_one, player_two)
+    Deck.round(player_one, player_two, [])
 
 
 if __name__ == "__main__":

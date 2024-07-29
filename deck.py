@@ -30,21 +30,24 @@ class Deck():
             else: player_2.deck.append(card)
     
     @classmethod
-    def round(cls,player_1: Player,player_2: Player):
+    def round(cls,player_1: Player,player_2: Player, cards):
         card_1 = player_1.current_card
         card_2 = player_2.current_card
-        cards = [card_1, card_2]
+        cards += [card_1, card_2]
         print(f'{player_1}\n{player_2}')
         if cls.__card_won(card_1, card_2):
             cls.__winner_of_the_round(player_1, cards)
         elif cls.__card_won(card_2, card_1):
             cls.__winner_of_the_round(player_2, cards)
         else:
-            cls.__war()
+            cls.__war(player_1, player_2, cards)
+
 
     @classmethod
-    def __war():
-        ...
+    def __war(cls, player_1: Player, player_2: Player, cards):
+        cards += [player_1.deck.pop(), player_1.deck.pop(), player_1.deck.pop(), player_2.deck.pop(), player_2.deck.pop(), player_2.deck.pop()]
+        cls.round(player_1, player_2, cards)
+
     
     @classmethod
     def __card_won(cls, card_1: Card, card_2: Card):

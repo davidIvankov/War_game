@@ -45,6 +45,7 @@ class Deck():
 
     @classmethod
     def __war(cls, player_1: Player, player_2: Player, cards):
+        input('War!')
         cards += [player_1.deck.pop(), player_1.deck.pop(), player_1.deck.pop(), player_2.deck.pop(), player_2.deck.pop(), player_2.deck.pop()]
         cls.round(player_1, player_2, cards)
 

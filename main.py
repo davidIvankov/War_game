@@ -11,8 +11,12 @@ def game_init():
 
 
 def main():
+    
     player_one, player_two = game_init()
-    Deck.round(player_one, player_two, [])
+    while player_one.deck and player_two.deck:
+        input('next? ')
+        Deck.round(player_one, player_two, [])
+        print(f'{player_one.name}: {len(player_one.deck)}\n{player_two.name}: {len(player_two.deck)}')
 
 
 if __name__ == "__main__":
